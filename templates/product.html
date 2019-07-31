@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--right content. catalog -->
+<div class="right__content">
+    <div class="content__catalog">
+        <h1 class="content__title">
+            {{ product.name_ru }}
+        </h1>
+        <div class="content__breadcrumbs">
+            <ul>
+                <li><a class="point" href="/">Главная</a></li>
+                <li><a class="point" href="/{{ parent_category.slug }}">{{ parent_category.name_ru }}</a></li>
+                <li><a class="point" href="/{{ parent_category.slug }}/{{ category.slug }}">{{ category.name_ru }}</a></li>
+                <li><span class="point" >{{ product.name_ru }}</span></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="product__container">
+            <div class="left__side" data-height="0">
+                <div class="product__imgs">
+                    <div class="main__img">
+                        <a data-fancybox="additional-gallery" href="{{ product.image.url }}">
+                            <img class="responsive__img" src="{{ product.image.url }}" alt="Product image">
+                        </a>
+                    </div>
+                    <div class="additional__img">
+                        <div class="owl__prev"></div>
+                        <div class="img__carousel owl-carousel">
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-1.jpg">
+                                <img src="assets/img/cat-img-1.jpg" alt="Additional product image">
+                            </a>
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-2.jpg">
+                                <img src="assets/img/cat-img-2.jpg" alt="Additional product image">
+                            </a>
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-3.jpg">
+                                <img src="assets/img/cat-img-3.jpg" alt="Additional product image">
+                            </a>
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-1.jpg">
+                                <img src="assets/img/cat-img-1.jpg" alt="Additional product image">
+                            </a>
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-2.jpg">
+                                <img src="assets/img/cat-img-2.jpg" alt="Additional product image">
+                            </a>
+                            <a data-fancybox="additional-gallery" href="assets/img/cat-img-3.jpg">
+                                <img src="assets/img/cat-img-3.jpg" alt="Additional product image">
+                            </a>
+                        </div>
+                        <div class="owl__next"></div>
+                    </div>
+                </div>
+                <div class="product__desc">
+                    <p>{{ product.description_ru|safe }}</p>
+                </div>
+            </div>
+            <div class="right__side">
+                <div class="form__callback" data-callback="Сделать заказ">
+                    <form class="form" action="">
+                        <div class="form__title">Сделать заказ</div>
+                        <div class="form__field">
+                            <label for="name">Ваше имя:</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div class="form__field">
+                            <label for="phone">Ваш телефон:</label>
+                            <input type="text" id="phone">
+                        </div>
+                        <div class="form__field">
+                            <label for="name">Ваш e-mail:</label>
+                            <input type="text" id="mail">
+                        </div>
+                        <div class="form__field">
+                            <label for="comment">Ваш комментарий:</label>
+                            <textarea type="text" id="comment"></textarea>
+                        </div>
+                        <div class="form__field">
+                            <input type="submit" value="Сделать заказ">
+                        </div>
+                        <div class="form__rules">
+                            Нажимая кнопку, вы даете согласие на <a href="/rules.html">обработку персональных данных</a>
+                        </div>
+                    </form>
+                    <div class="form__success">
+                        Благодарим за заявку, наш менеджер свяжется в Вами в рабочее время!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

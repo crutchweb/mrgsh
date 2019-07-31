@@ -1,0 +1,90 @@
+{% load static widgets_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Описание сайта">
+    <link rel="icon" href="{% static 'assets/icon/favicon.png' %}" type="image/x-icon">
+
+    <!--site title-->
+    <title>Заголовок сайта</title>
+
+    <!--css-->
+    <link href="{% static 'assets/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.theme.default.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/fancybox.min.css' %}" rel="stylesheet">
+
+    <!--js-->
+    <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/fancybox.min.js' %}"></script>
+
+</head>
+
+<body>
+<!--left sidebar, main nav, all pages-->
+<div class="left__sidebar">
+    <div class="header sidebar__top">
+        <div class="col__left">
+            <div class="sidebar__logo">
+                <a href="/">
+                    <img src="{% static 'assets/icon/logo.png' %}" alt="Logo">
+                </a>
+            </div>
+        </div>
+        <div class="col__right">
+            <div class="sidebar__language">
+                <ul>
+                    <li><a href="#" class="active">RU</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <!-- Categories and menu -->
+    {% show_categories %}
+
+    <div class="footer sidebar__bottom widgetarea">
+        
+        <!-- news widget -->
+        {% show_widget_news %}
+
+        <div class="widget center">
+            <div class="widget__content">
+                <div class="content__adrs">
+                    РС (Я) Мирнинский улус, г. Мирный, шоссе 50 лет Октября, дом 16, кв.2
+                </div>
+                <div class="content__href">
+                    <a href="tel:8-800-550-12-57">8 800 550 12 57</a>
+                </div>
+                <div class="content__href">
+                    <a href="mailto:info@mirgsho.com">info@mirgsho.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="widget bottom">
+            <div class="widget__content">
+                <div class="content__txt">
+                    © 2009-2019 mirgsho.com
+                </div>
+                <div class="content__href">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Заявление об ограничении ответственности</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--content -->
+{% block content %}{% endblock %}
+<!--/content -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load mptt_tags %}
+
+<div class="sidebar__centerline navigation">
+    <ul>
+        {% for item in items %}           
+            
+                {% if not item.parent %}
+                <li class="sub__menu">
+                    <!-- translate condition here -->                
+                    <a href="{{ item.get_absolute_url }}">{{ item.name_ru }}</a>
+                    {% if not item.is_leaf_node %}
+                    <ul class="menu__children">
+                        {% include 'include/subcategories.html' with parent_slug=item.slug items=item.get_children %}                        
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endif %}                       
+        {% endfor %}
+        <!-- translate condition here -->
+        <li><a href="/news">Новости</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+    </ul>
+</div>

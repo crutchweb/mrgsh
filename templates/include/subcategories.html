@@ -1,0 +1,3 @@
+{% for item in items %}
+<li><a href="/{{ parent_slug }}{{ item.get_absolute_url }}">{{ item.name_ru }}</a></li>
+{% endfor %}

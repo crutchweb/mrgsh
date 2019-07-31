@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--right content. catalog -->
+<div class="right__content">
+    <div class="content__catalog">
+        <h1 class="content__title">
+            Контакты
+        </h1>
+        <div class="content__breadcrumbs">
+            <ul>
+                <li><a class="point" href="/">Главная</a></li>
+                <li><span class="point" >Контакты</span></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="contact__container">
+            <div class="left__side" data-height="0">
+                <div class="iframe-container" id="yandexMap">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac30556aa0b095c0a2f2b5cc34a4ac7449780797aac1ab06e01a5cc75861ade36&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+                <div class="contact__block">
+                    <div class="contact__line">
+                        РС (Я) Мирнинский улус, г. Мирный, шоссе 50 лет Октября, дом 16, кв.2
+                    </div>
+                    <div class="contact__line">
+                        <a href="tel:8 800 550 12 57">8 800 550 12 57</a>
+                    </div>
+                    <div class="contact__line">
+                        <a href="mailto:info@mirgsho.com">info@mirgsho.com</a>
+                    </div>
+                    <div class="contact__line">
+                        ОГРН 1151436000198<br>
+                        ИНН 1433010561
+                    </div>
+                </div>
+            </div>
+            <div class="right__side" data-callback="Задать вопрос">
+                <div class="form__contact" data-contact="Обратная связь">
+                    <form class="form" action="">
+                        <div class="form__title">Обратная связь</div>
+                        <div class="form__field">
+                            <label for="name">Ваше имя:</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div class="form__field">
+                            <label for="phone">Ваш телефон:</label>
+                            <input type="text" id="phone">
+                        </div>
+                        <div class="form__field">
+                            <label for="name">Ваш e-mail:</label>
+                            <input type="text" id="mail">
+                        </div>
+                        <div class="form__field">
+                            <label for="comment">Ваш комментарий:</label>
+                            <textarea type="text" id="comment"></textarea>
+                        </div>
+                        <div class="form__field">
+                            <input type="submit" value="Отправить">
+                        </div>
+                        <div class="form__rules">
+                            Нажимая кнопку, вы даете согласие на <a href="/rules.html">обработку персональных данных</a>
+                        </div>
+                    </form>
+                    <div class="form__success">
+                        Благодарим за заявку, наш менеджер свяжется в Вами в рабочее время!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

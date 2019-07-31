@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--right content. catalog -->
+<div class="right__content">
+    <div class="content__catalog">
+        <h1 class="content__title">
+            {{ category.name_ru }}            
+        </h1>
+        <div class="content__breadcrumbs">
+            <ul>
+                <li><a class="point" href="/">Главная</a></li>
+                <li><span class="point" >{{ category.name_ru }}</span></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="category__grid">
+            <div class="grid__title">Подкатегории</div>
+            {% for sub_category in sub_categories %}
+            <div class="grid__item">
+                <a href="/{{ category.slug }}/{{ sub_category.slug }}">
+                    <div class="item__image">
+                        <img class="responsive__img" src="{{ sub_category.image.url }}" alt="{{ sub_category.name_ru }}">
+                    </div>
+                    <div class="item__data">
+                        <div class="data__title">{{ sub_category.name_ru }}</div>
+                        <div class="data__btn">Перейти</div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="product__grid">
+            <div class="grid__title">Продукты</div>
+            {% for product in products %}
+            <div class="grid__item">
+                <a href="/{{ category.slug }}/{{ product.category.slug }}/{{ product.slug }}">
+                    <div class="item__image">
+                        <img class="responsive__img" src="{{ product.image.url }}" alt="{{ product.name_ru }}">
+                    </div>
+                    <div class="item__data">
+                        <div class="data__title">{{ product.name_ru }}</div>
+                        <div class="data__desc">
+                            {{ product.description_ru|safe|truncatechars:30 }}
+                        </div>
+                        <div class="data__btn">Подробнее</div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="show__more">
+            <div id="showMore" class="btn" data-hover="Показать еще">Показать еще</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

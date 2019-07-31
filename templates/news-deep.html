@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--right content. catalog -->
+<div class="right__content">
+    <div class="content__catalog">
+        <h1 class="content__title">
+            {{ item.name }}
+        </h1>
+        <div class="content__breadcrumbs">
+            <ul>
+                <li><a class="point" href="/">Главная</a></li>
+                <li><a class="point" href="/catalog.html">Горношахное оборудование</a></li>
+                <li><span class="point" >Огнетушитель с порошком - переносной Sentry® - Ansul</span></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="news__container">
+            <div class="left__side">
+                <div class="main__img">
+                    <img class="responsive__img" src="{{ item.image.url }}" alt="Product image">
+                </div>
+                <div class="news__desc">
+                    {{ item.description|safe }}
+                </div>
+            </div>
+            <div class="right__side">
+                <div class="title">Новости компании</div>
+                <div class="news__list">
+                    {% for one_news in items %}
+                    <a href="{{ one_news.get_absolute_url }}" class="news__container">
+                        <div class="news__date">{{ one_news.created|date:"d E" }}</div>
+                        <div class="news__title">{{ one_news.name }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
